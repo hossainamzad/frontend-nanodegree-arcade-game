@@ -8,6 +8,8 @@ var Enemy = function(x,y) {
     this.x = x;
     this.y = y;
     this.sprite = 'images/enemy-bug.png';
+    this.height = 65;
+    this.width = 95;
 };
 
 // Update the enemy's position, required method for game
@@ -35,6 +37,8 @@ var Player = function(x,y, sprite) {
     this.x = x;
     this.y = y;
     this.sprite = sprite;
+    this.height = 75;
+    this.width = 65;
 
 };
 
@@ -51,6 +55,20 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+Player.prototype.handleInput = function(button) {
+  if(button === 'left') {
+          this.x -= 100;
+  } else if (button ==='right') {
+          this.x += 100;
+
+  } else if(button ==='up') {
+          this.y -= 83;
+
+  }else if (button === 'down') {
+
+          this.y += 83;
+  }
+}
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
