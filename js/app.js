@@ -57,16 +57,23 @@ Player.prototype.render = function() {
 
 Player.prototype.handleInput = function(button) {
   if(button === 'left') {
-          this.x -= 100;
+    if (this.x > 60){
+      this.x -= 100;
+    }
   } else if (button ==='right') {
-          this.x += 100;
+    if (this.x < 400) {
+      this.x += 100;
+    }
 
   } else if(button ==='up') {
-          this.y -= 83;
+      if (this.y > 60) {
+        this.y -= 83;
+      }
 
   }else if (button === 'down') {
-
-          this.y += 83;
+    if (this.y < 400) {
+      this.y += 83;
+    }
   }
 }
 // Now instantiate your objects.
