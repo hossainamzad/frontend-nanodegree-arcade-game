@@ -12,12 +12,25 @@ var Enemy = function(x,y) {
     this.width = 95;
 };
 
+// random speed function for the Enemy class
+Enemy.prototype.randomSpeed = function() {
+    var speed = Math.random() * 100 + 50;
+    return Math.floor(speed);
+}
+
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    //this.x += 150 * dt;
+    if(this.x < 400) {
+        this.x = this.x + this.speed * dt;
+    } else {
+        this.x = 0;
+        this.speed = this.randomSpeed();
+    }
 };
 
 // Draw the enemy on the screen, required method for game
@@ -94,5 +107,10 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+const enemyPosition = [55,140,230];
 const player = new Player(202, 400, 'images/char-boy.png');
-const allEnemies = [];
+const allEnemies = enemyPosition.map((y, index) => {
+  return new Enemy( (-200*(index + 1)), y);
+});
+
+console.log(allEnemies);
