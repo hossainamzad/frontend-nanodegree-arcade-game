@@ -1,4 +1,6 @@
 # frontend-nanodegree-arcade-game
+### Project 3 down!
+![javasript everywhere](https://img.devrant.io/devrant/rant/r_448785_RYEUg.jpg)
 
 Classc Arcade game is a game built on Object Oriented Javascript, HTML and CSS.
 
@@ -14,11 +16,10 @@ Classc Arcade game is a game built on Object Oriented Javascript, HTML and CSS.
     * Use arrow keys to move the player to the right, left, up and down to dodge the bugs
 
 ## Challenges
-    * JavaScript is hard :cry:
+    * JavaScript is hard #### 🚀
 
 ## Wins     
-    * Game is working :sunny:
-    #### 🚀 YaY!!
+    * Game is working ##### 🌟
 
 ## Post MVP:
     - Will add a modal and more functionality to the game :muscle:
