@@ -1,3 +1,7 @@
+
+let game = true;
+let score = 0;
+let newScore = document.querySelector("#score");
 // Enemies our player must avoid
 var Enemy = function(x,y) {
     // Variables applied to each of our instances go here,
@@ -61,6 +65,14 @@ Player.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+
+     for(let i = 0; i < 3; i++) {
+        if((this.y + 40 > allEnemies[i].y) &&
+         (this.y < allEnemies[i].y + 40)  && (this.x < allEnemies[i].x + 50)
+        && (this.x + 50 > allEnemies[i].x)) {
+            this.y = 400;
+        }
+    }
 };
 
 // Draw the player on the screen, required method for game
@@ -73,16 +85,20 @@ Player.prototype.handleInput = function(button) {
     if (this.x > 60){
       this.x -= 100;
     }
-  } else if (button ==='right') {
+  }else if (button ==='right') {
     if (this.x < 400) {
       this.x += 100;
     }
 
-  } else if(button ==='up') {
-      if (this.y > 60) {
-        this.y -= 83;
-      }
-
+  }else if(button ==='up') {
+    if(this.y > 60) {
+      this.y -= 83;
+    }
+    if (this.y < 40){
+      score = score + 1;
+      newScore.innerHTML = "You scored: " + score;
+    }
+    console.log("jumped");
   }else if (button === 'down') {
     if (this.y < 400) {
       this.y += 83;
@@ -109,8 +125,17 @@ document.addEventListener('keyup', function(e) {
 });
 const enemyPosition = [55,140,230];
 const player = new Player(202, 400, 'images/char-boy.png');
-const allEnemies = enemyPosition.map((y, index) => {
+let  allEnemies = enemyPosition.map((y, index) => {
   return new Enemy( (-200*(index + 1)), y);
 });
+
+function win () {
+  reset();
+  console.log("made it safely to the shore");
+}
+
+function reset () {
+  allEnemies = [];
+}
 
 console.log(allEnemies);
