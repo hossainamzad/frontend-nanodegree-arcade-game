@@ -18,6 +18,7 @@ Classc Arcade game is a game built on Object Oriented Javascript, HTML and CSS.
 
 ## Wins     
     * Game is working :sunny:
+    #### 🚀 YaY!!
 
 ## Post MVP:
     - Will add a modal and more functionality to the game :muscle:
