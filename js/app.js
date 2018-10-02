@@ -139,3 +139,5 @@ function reset () {
 }
 
 console.log(allEnemies);
+
+// A big thanks to Lloan Alas. I followed his walkthrough.
